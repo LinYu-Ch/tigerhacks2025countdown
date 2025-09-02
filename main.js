@@ -1,5 +1,6 @@
 const clock = document.getElementById("countdown-clock");
-const countDownDate = new Date("Jan 5, 2030 15:37:25").getTime();
+
+const countDownDate = new Date("2025-10-01T05:01:00.000Z").getTime();
 
 let countdownTimer = setInterval(function() {
 
@@ -7,13 +8,12 @@ let countdownTimer = setInterval(function() {
 
   let distance = countDownDate - now;
 
-  let months = padNum(Math.floor(distance / (1000 * 60 * 60 * 24 * 30)));
   let days = padNum(Math.floor(distance % (1000 * 60 * 60 * 24 * 30) / (1000 * 60 * 60 * 24)));
   let hours = padNum(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
   let minutes = padNum(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
   let seconds = padNum(Math.floor((distance % (1000 * 60)) / 1000));
 
-  clock.innerText = `${months}:${days}:${hours}:${minutes}:${seconds}`;
+  clock.innerText = `${days}:${hours}:${minutes}:${seconds}`;
 
   if (distance < 0) {
     clearInterval(countdownTimer);
